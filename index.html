@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#c8102e">
-<meta name="description" content="Milwaukee / TTI OPM NPD V14 bilingual dictionary, process playbooks and Supplier 360 directory.">
+<meta name="description" content="Milwaukee / TTI OPM NPD V15 bilingual dictionary, process playbooks and Supplier working directory.">
 <title>Milwaukee OPM NPD Dictionary</title>
 <style>
 :root{
@@ -61,6 +61,10 @@ header{height:var(--head);position:sticky;top:0;z-index:50;background:rgba(245,2
 
 
 
+
+
+
+
 .rsub{font-size:11.5px;color:var(--text2);margin-top:5px}.rmeta{font-size:10.5px;color:var(--muted);margin-top:4px}.codes{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.code{background:#f1f3f4;border-radius:5px;padding:3px 5px;color:#3a4248;font-size:10px;font-variant-numeric:tabular-nums}.code i{font-style:normal;color:#899198;font-size:8px;text-transform:uppercase;margin-right:3px}
 mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{padding:50px 24px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--text2);font-size:14px;margin-bottom:5px}.foot{padding:9px 12px 12px;text-align:center;color:var(--muted);font-size:9.5px}
 .detailpane{min-width:0;max-height:calc(100vh - 112px);overflow:auto;scrollbar-width:thin}.detail{max-width:950px;margin:auto;padding:28px 34px 42px}
@@ -88,6 +92,10 @@ mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{p
 
 
 
+
+
+
+
 .process-flow{display:flex;flex-direction:column;gap:0;margin-top:4px}
 .pstep{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:flex-start;position:relative;padding:6px 0 12px}
 .pstep:not(:last-child):after{content:"";position:absolute;left:14px;top:31px;bottom:-1px;width:1px;background:var(--line2)}
@@ -98,6 +106,10 @@ mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{p
 .rule:before{content:"";width:5px;height:5px;border-radius:50%;background:#aeb5bb;margin-top:7px}
 .rule.open:before{background:#c5a13e}
 .rule.example:before{background:var(--red)}
+
+
+
+
 
 
 
@@ -118,7 +130,9 @@ mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{p
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 
-/* V14 supplier directory */
+
+
+/* V15 supplier directory */
 .rtop{align-items:flex-start}.tags{flex:0 0 auto;flex-wrap:nowrap;align-items:flex-start}
 .tag{width:auto!important;min-width:max-content;max-width:none;min-height:0!important;height:auto!important;flex:0 0 auto;align-items:center;justify-content:center;padding:4px 8px;line-height:1.1;white-space:nowrap}
 .supplier-card{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;margin-top:14px}
@@ -134,7 +148,7 @@ mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{p
 </head>
 <body>
 <header><div class="hin">
- <div class="brand"><div class="mark"></div><div><b>OPM NPD DICTIONARY</b><small>V14 • Knowledge + Playbooks + Supplier Directory</small></div></div>
+ <div class="brand"><div class="mark"></div><div><b>OPM NPD DICTIONARY</b><small>V15 • Knowledge + Playbooks + Supplier Directory</small></div></div>
  <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg><input id="q" type="search" placeholder="Search term, process, role/PIC, vendor code, tax ID, supplier…"><span class="key">/</span></div>
  <div class="hact"><button id="filterBtn" class="btn mobilefilter">Filters</button><button id="savedBtn" class="btn">☆ <span class="savedlabel">Saved</span></button></div>
 </div></header>
@@ -151,8 +165,8 @@ mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{p
 <div id="backdrop" class="backdrop"></div><aside id="drawer" class="drawer"><div class="drawerhead"><b>Filters</b><button id="closeDrawer" class="btn">Close</button></div><div id="mobileFilters"></div></aside><div id="toast" class="toast"></div>
 <script>
 let DATA=[],FILTERED=[],selected=0,lastModified='';
-const savedRaw=localStorage.getItem('milV14Saved')||localStorage.getItem('milV13Saved')||localStorage.getItem('milV12Saved')||localStorage.getItem('milV8Saved')||'[]';
-const lensRaw=localStorage.getItem('milV14Lens')||localStorage.getItem('milV13Lens')||localStorage.getItem('milV12Lens')||localStorage.getItem('milV8Lens')||'OPM';
+const savedRaw=localStorage.getItem('milV15Saved')||localStorage.getItem('milV13Saved')||localStorage.getItem('milV12Saved')||localStorage.getItem('milV8Saved')||'[]';
+const lensRaw=localStorage.getItem('milV15Lens')||localStorage.getItem('milV13Lens')||localStorage.getItem('milV12Lens')||localStorage.getItem('milV8Lens')||'OPM';
 const state={q:'',scope:'All',category:'All',levels:new Set(),commodity:'All',buyer:'All',route:'All',research:'All',needsCheck:false,openOnly:false,ambiguous:false,savedOnly:false,lens:lensRaw,saved:new Set(JSON.parse(savedRaw))};
 const $=id=>document.getElementById(id);
 const LENS={
@@ -182,9 +196,9 @@ function records(text){
  for(const x of a){if(x.type==='Glossary'){x.meaningCount=(g.get(norm(x.term))||[]).length;x.ambiguous=x.meaningCount>1}else{x.meaningCount=1;x.ambiguous=false}}
  return a
 }
-function webCount(x){return x.entities.filter(e=>e.verification_status==='Externally researched').length}
+function webCount(x){return x.entities.filter(e=>/externally researched/i.test(String(e.verification_status||''))).length}
 function routePresent(x,r){return x.entities.some(e=>e.route===r)}
-function score(x,q){if(!q)return 1;const n=norm(q.trim()),t=norm(x.term),f=norm(x.full);if(x.type==='Supplier'){const c=norm(x.commodity);if(c===n)return 180;if(c.startsWith(n))return 130;if(c.includes(n))return 106;const w=n.split(/\s+/).filter(Boolean);return w.every(z=>c.includes(z))?38:0}if(t===n)return 180;if(x.aliases.some(a=>norm(a)===n))return 160;if(t.startsWith(n))return 130;if(t.includes(n))return 106;if(f.startsWith(n))return 94;if(f.includes(n))return 80;const w=n.split(/\s+/).filter(Boolean);return w.every(z=>x._search.includes(z))?38:0}
+function score(x,q){if(!q)return 1;const n=norm(q.trim()),t=norm(x.term),f=norm(x.full);if(x.type==='Supplier'){const c=norm(x.commodity),sh=norm(x.short),codes=x.vendorCodes.map(norm);if(codes.includes(n))return 200;if(t===n||sh===n)return 195;if(t.startsWith(n)||sh.startsWith(n))return 150;if(codes.some(v=>v.startsWith(n)))return 145;if(t.includes(n)||sh.includes(n))return 125;if(c.includes(n))return 105;const hay=norm([x.term,x.short,x.commodity,...x.vendorCodes].join(' ')),w=n.split(/\s+/).filter(Boolean);return w.every(z=>hay.includes(z))?45:0}if(t===n)return 180;if(x.aliases.some(a=>norm(a)===n))return 160;if(t.startsWith(n))return 130;if(t.includes(n))return 106;if(f.startsWith(n))return 94;if(f.includes(n))return 80;const w=n.split(/\s+/).filter(Boolean);return w.every(z=>x._search.includes(z))?38:0}
 function results(){
  const q=state.q.trim();return DATA.map(x=>({x,s:score(x,q)})).filter(o=>o.s>0)
  .filter(o=>state.scope==='All'||o.x.type===state.scope)
@@ -211,7 +225,7 @@ function filters(){
  }
  if(state.scope==='Supplier'){const s=DATA.filter(x=>x.type==='Supplier'),com=['All',...uniq(s.flatMap(x=>split(x.commodity))).sort()];
   return `<div class="fg"><div class="ft">Commodity</div><select class="sel" data-select="commodity">${opts(com,state.commodity)}</select></div>
-  <div class="sidenote"><b>Supplier view:</b><br>Search and filter by commodity only. Details show vendor code, possible parts, address, supplier contacts, internal TTI relation and working notes.</div>`
+  <div class="sidenote"><b>Supplier view:</b><br>Search by vendor name, vendor code or commodity. Commodity remains the only sidebar filter.</div>`
  }
  if(state.scope==='Process'){
   const p=DATA.filter(x=>x.type==='Process'),cats=['All',...uniq(p.map(x=>x.category)).sort()];
@@ -246,13 +260,24 @@ function wire(root){
 }
 function renderFilters(){const h=filters();$('side').innerHTML=h;$('mobileFilters').innerHTML=h;wire($('side'));wire($('mobileFilters'))}
 function hi(s,q){s=String(s||'');if(!q)return esc(s);const n=norm(q.trim()),ns=norm(s),i=ns.indexOf(n);if(i<0)return esc(s);return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.trim().length))+'</mark>'+esc(s.slice(i+q.trim().length))}
-function routeCodeLabel(e){const r=String(e.route||'');if(r.includes('→ TTI PRC'))return'PRC';if(r.includes('PRC supplier → TTI VN'))return'PRC→VN';if(r.includes('VN supplier → TTI VN'))return'VN';if(r.includes('Oversea'))return'OVERSEA';if(r.includes('Hong Kong')||r.includes('HK'))return'HK';if(r.includes('Site unspecified'))return'SITE?';return String(e.source_manufacturing_location||'SITE').toUpperCase().slice(0,8)}
-function codechips(x){return x.entities.filter(e=>e.vendor_code).map(e=>`<span class="code"><i>${esc(routeCodeLabel(e))}</i>${esc(e.vendor_code)}</span>`).join('')}
+function countrySite(e,x){
+ const raw=[e.jurisdiction,e.source_manufacturing_location,e.registered_address,x?.regAddresses,x?.term].filter(Boolean).join(' ');
+ const n=norm(raw);
+ if(/\bvn\b|vietnam|viet nam/.test(n))return e.source_manufacturing_location&&!/^(local|oversea|unspecified)$/i.test(e.source_manufacturing_location)?e.source_manufacturing_location:'VN';
+ if(/hong kong/.test(n))return e.source_manufacturing_location&&!/^(oversea|unspecified)$/i.test(e.source_manufacturing_location)?e.source_manufacturing_location:'Hong Kong';
+ if(/\bprc\b|china|shanghai|shenzhen|suzhou|dongguan|guangdong|jiangsu|zhejiang|ningbo|hangzhou|changzhou|tianjin|chongqing|fujian|xiamen|wuxi|kunshan|huizhou|jinhua|shaoxing|qingdao|guangzhou|changsha/.test(n))return e.source_manufacturing_location&&!/^(oversea|unspecified)$/i.test(e.source_manufacturing_location)?e.source_manufacturing_location:'PRC';
+ if(/taiwan/.test(n))return'Taiwan';if(/thailand/.test(n))return'Thailand';if(/singapore/.test(n))return'Singapore';if(/malaysia/.test(n))return'Malaysia';if(/germany/.test(n))return'Germany';if(/japan/.test(n))return'Japan';if(/korea/.test(n))return'South Korea';if(/united states|\busa\b/.test(n))return'USA';
+ return'Country not verified'
+}
+function primarySite(x){const a=(x.entities||[]).map(e=>countrySite(e,x)).filter(v=>v&&v!=='Country not verified');return a[0]||'Country not verified'}
+function siteShort(s){const n=norm(s);if(/\bvn\b|vietnam|viet nam/.test(n))return'VN';if(/\bprc\b|china/.test(n))return'PRC';if(/hong kong/.test(n))return'HK';if(/thailand/.test(n))return'TH';if(/taiwan/.test(n))return'TW';if(/singapore/.test(n))return'SG';if(/malaysia/.test(n))return'MY';if(/germany/.test(n))return'DE';if(/japan/.test(n))return'JP';if(/korea/.test(n))return'KR';if(/usa|united states/.test(n))return'US';return'SITE?'}
+function routeCodeLabel(e,x){return siteShort(countrySite(e,x))}
+function codechips(x){return x.entities.filter(e=>e.vendor_code).map(e=>`<span class="code"><i>${esc(routeCodeLabel(e,x))}</i>${esc(e.vendor_code)}</span>`).join('')}
 function renderResults(){
  FILTERED=results();if(selected>=FILTERED.length)selected=Math.max(0,FILTERED.length-1);
  const label=state.scope==='Supplier'?'supplier profiles':state.scope==='Process'?'process playbooks':'results';
  $('count').textContent=`${FILTERED.length.toLocaleString()} ${label}`;
- $('mode').textContent=state.q?'Ranked by relevance':state.scope==='Supplier'?'Supplier 360°':state.scope==='Process'?'OPM playbooks':'Bilingual knowledge';
+ $('mode').textContent=state.q?'Ranked by relevance':state.scope==='Supplier'?'Supplier directory':state.scope==='Process'?'OPM playbooks':'Bilingual knowledge';
  if(!FILTERED.length){$('results').innerHTML='<div class="empty"><strong>No matching record</strong>Try another keyword/code or remove a filter.</div>';$('detail').innerHTML='<div class="empty"><strong>Nothing selected</strong></div>';return}
  $('results').innerHTML=FILTERED.map((x,i)=>{
    if(x.type==='Supplier')return `<button class="res ${i===selected?'active':''}" data-i="${i}"><div class="rtop"><div class="rname">${esc(x.term)}</div></div><div class="rsub">${hi(x.commodity,state.q)||'Commodity not confirmed'}</div><div class="codes">${codechips(x)}</div></button>`;
@@ -285,15 +310,25 @@ function entityHTML(e){
 function quick(x){const n=x.entities.length,w=webCount(x),bad=x.dq||x.entities.some(e=>e.external_research_note||e.verification_status==='Needs verification');return `<div class="quick"><div class="qi"><b>Mapped entities</b><span>${n}</span></div><div class="qi"><b>Externally researched</b><span class="${w?'goodtxt':''}">${w}/${n}</span></div><div class="qi"><b>Data status</b><span class="${bad?'warntxt':'goodtxt'}">${bad?'Review flags':'No issue flagged'}</span></div><div class="qi"><b>Currency</b><span>${esc(x.currencies||'—')}</span></div></div>`}
 function contactRows(s,kind='contactline'){return String(s||'').split(/\s*\|\|\s*/).map(v=>v.trim()).filter(Boolean).map(v=>`<div class="${kind}">${esc(v)}</div>`).join('')}
 function internalRows(x){const a=uniq([...String(x.mainContacts||'').split(/\s*\|\s*/),...split(x.internal)]).map(v=>v.trim()).filter(v=>v&&!/^SQE:\s*#N\/A$/i.test(v)&&!/^PMC:\s*#N\/A$/i.test(v));return a.length?a.map(v=>`<div class="relationline">${esc(v)}</div>`).join(''):'<span class="noinfo">No internal working relation recorded.</span>'}
-function supplierContactRows(x){if(x.contactVendorRecords)return contactRows(x.contactVendorRecords);const a=split(x.emails);return a.length?a.map(v=>`<div class="contactline"><a class="mail" href="mailto:${encodeURIComponent(v)}">${esc(v)}</a></div>`).join(''):'<span class="noinfo">No supplier contact recorded.</span>'}
-function supplierCodeRows(x){const a=(x.entities||[]).filter(e=>e.vendor_code);if(a.length)return a.map(e=>`<div class="vendorline"><span class="vendorcode">${esc(e.vendor_code)}</span><span class="sitesrc">${esc(e.source_manufacturing_location||e.route||'Site unspecified')}</span></div>`).join('');return x.vendorCodes.length?x.vendorCodes.map(v=>`<div class="vendorline"><span class="vendorcode">${esc(v)}</span></div>`).join(''):'<span class="noinfo">No vendor code recorded.</span>'}
+function supplierContactRows(x){if(x.contactVendorRecords)return contactRows(x.contactVendorRecords);const a=split(x.emails);return a.length?a.map(v=>`<div class="contactline"><a class="mail" href="mailto:${encodeURIComponent(v)}">${esc(v)}</a></div>`).join(''):'<span class="noinfo">No public working contact verified.</span>'}
+function supplierCodeRows(x){const a=(x.entities||[]).filter(e=>e.vendor_code);if(a.length)return a.map(e=>`<div class="vendorline"><span class="vendorcode">${esc(e.vendor_code)}</span><span class="sitesrc">${esc(countrySite(e,x))}</span></div>`).join('');return x.vendorCodes.length?x.vendorCodes.map(v=>`<div class="vendorline"><span class="vendorcode">${esc(v)}</span></div>`).join(''):'<span class="noinfo">No vendor code recorded.</span>'}
+function companyAddressHTML(x){if(x.regAddresses)return esc(x.regAddresses);return `<span class="noinfo">Full street address not yet verified. Site: ${esc(primarySite(x))}</span>`}
+function companyInfoHTML(x){
+ const parts=[],site=primarySite(x),isVN=/\bvn\b|vietnam|viet nam/i.test(site);
+ if(x.taxIds)parts.push(`<span class="vendorcode">${isVN?'MST':'Registration ID'}: ${esc(x.taxIds)}</span>`);
+ const urls=split(x.externalSources).filter(u=>/^https?:\/\//i.test(u)).slice(0,5);
+ urls.forEach((u,i)=>{const d=u.toLowerCase(),registry=/masothue|thuvienphapluat|dulieuphapluat|fiingate|companieshouse|cnverify|volza|enfsolar|enf\.com|disclosures\.ifc|idpvn|infocom|thongtincongty/.test(d);parts.push(`<a class="srcbtn" href="${esc(u)}" target="_blank" rel="noopener">${registry?'Company info':i===0?'Website':'Source '+(i+1)}</a>`)});
+ return parts.length?parts.join(' '):'<span class="noinfo">No public website or registration link verified.</span>'
+}
 function renderSupplier(x){
  const suggested=/suggested commodity/i.test(x.researchStatus||'');const notes=uniq([x.remarks,x.dq].filter(v=>v&&!/^Group Commodity:/i.test(v)));
  $('detail').innerHTML=`<div class="kicker">Supplier working profile</div><div class="dhead"><div><h1 class="title">${esc(x.term)}</h1><div class="subtitle">${esc(x.commodity||'Commodity not confirmed')}</div>${suggested?'<div class="researchnote">Commodity is a public-research suggestion because the TTI Vendor List source was N/A. Confirm with Purchasing/OPM before treating it as controlled TTI sourcing scope.</div>':''}</div><div class="dact"><button id="save" class="btn">${state.saved.has(x.id)?'★ Saved':'☆ Save'}</button><button id="copy" class="btn">Copy</button><button id="share" class="btn primary">Share</button></div></div>
  <div class="supplier-card">
  <div class="supplier-row"><div class="supplier-key">Vendor code</div><div class="supplier-val">${supplierCodeRows(x)}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Country / site</div><div class="supplier-val">${esc(primarySite(x))}</div></div>
  <div class="supplier-row"><div class="supplier-key">Commodity & possible parts</div><div class="supplier-val"><b>${esc(x.commodity||'Not confirmed')}</b>${x.verifiedProducts?`<div class="part_examples"><b>Public capability examples</b><br>${esc(x.verifiedProducts)}</div>`:''}</div></div>
- <div class="supplier-row"><div class="supplier-key">Company address</div><div class="supplier-val">${esc(x.regAddresses||'No address verified.')}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Company address</div><div class="supplier-val">${companyAddressHTML(x)}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Website / MST / Company info</div><div class="supplier-val">${companyInfoHTML(x)}</div></div>
  <div class="supplier-row"><div class="supplier-key">Supplier working contacts</div><div class="supplier-val">${supplierContactRows(x)}</div></div>
  <div class="supplier-row"><div class="supplier-key">Internal TTI working relation</div><div class="supplier-val">${internalRows(x)}</div></div>
  <div class="supplier-row"><div class="supplier-key">Notes / watch-outs</div><div class="supplier-val">${notes.length?notes.map(v=>`<div class="relationline">${esc(v)}</div>`).join(''):'<span class="noinfo">No working note added yet.</span>'}</div></div>
@@ -356,10 +391,10 @@ function activeItems(){
 }
 function renderActive(){const a=activeItems(),b=$('active');b.classList.toggle('show',a.length>0);b.innerHTML=a.map((x,i)=>`<button class="achip" data-a="${i}">${esc(x[1])} ×</button>`).join('');b.querySelectorAll('[data-a]').forEach(z=>z.onclick=()=>{const[k,v]=a[Number(z.dataset.a)];if(k==='q'){state.q='';$('q').value=''}else if(k==='level')state.levels.delete(v);else if(['needsCheck','openOnly','ambiguous','savedOnly'].includes(k))state[k]=false;else state[k]='All';selected=0;render()})}
 function renderOnly(){renderResults();renderActive();renderDetail()}
-function render(){document.querySelectorAll('[data-scope]').forEach(b=>b.classList.toggle('active',b.dataset.scope===state.scope));$('q').placeholder=state.scope==='Supplier'?'Search commodity…':'Search term, process, role/PIC, supplier…';$('topnote').textContent=state.scope==='Supplier'?'Search and filter by commodity.':state.scope==='Process'?'Search working flows, rules, examples and open checkpoints.':state.scope==='Glossary'?'Every term has Vietnamese definition + practical OPM explanation.':'Search first; use tabs only when you want to narrow the result type.';renderFilters();renderResults();renderActive();if(FILTERED.length)renderDetail();updateSaved()}
+function render(){document.querySelectorAll('[data-scope]').forEach(b=>b.classList.toggle('active',b.dataset.scope===state.scope));$('q').placeholder=state.scope==='Supplier'?'Search vendor name, vendor code or commodity…':'Search term, process, role/PIC, supplier…';$('topnote').textContent=state.scope==='Supplier'?'Search by vendor name, vendor code or commodity; filter by commodity.':state.scope==='Process'?'Search working flows, rules, examples and open checkpoints.':state.scope==='Glossary'?'Every term has Vietnamese definition + practical OPM explanation.':'Search first; use tabs only when you want to narrow the result type.';renderFilters();renderResults();renderActive();if(FILTERED.length)renderDetail();updateSaved()}
 function resetFilters(){state.category='All';state.levels.clear();state.commodity='All';state.buyer='All';state.route='All';state.research='All';state.needsCheck=false;state.openOnly=false;state.ambiguous=false}
 function updateSaved(){$('savedBtn').classList.toggle('active',state.savedOnly);$('savedBtn').innerHTML=`${state.savedOnly?'★':'☆'} <span class="savedlabel">Saved${state.saved.size?' ('+state.saved.size+')':''}</span>`}
-function toggleSave(id){state.saved.has(id)?state.saved.delete(id):state.saved.add(id);localStorage.setItem('milV14Saved',JSON.stringify([...state.saved]));render();toast(state.saved.has(id)?'Saved':'Removed')}
+function toggleSave(id){state.saved.has(id)?state.saved.delete(id):state.saved.add(id);localStorage.setItem('milV15Saved',JSON.stringify([...state.saved]));render();toast(state.saved.has(id)?'Saved':'Removed')}
 function recordUrl(x){const u=new URL(location.href);u.search='';u.hash='';u.searchParams.set(x.type==='Supplier'?'supplier':x.type==='Process'?'process':'term',x.term);u.searchParams.set('record',x.id);return u.toString()}
 function updateUrl(x){history.replaceState(null,'',recordUrl(x))}
 function shareRecord(x){const u=recordUrl(x);if(navigator.share)navigator.share({title:x.term,url:u}).catch(()=>{});else navigator.clipboard.writeText(u).then(()=>toast('Link copied'))}
