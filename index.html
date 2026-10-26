@@ -1,0 +1,414 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#c8102e">
+<meta name="description" content="Milwaukee / TTI OPM NPD V14 bilingual dictionary, process playbooks and Supplier 360 directory.">
+<title>Milwaukee OPM NPD Dictionary</title>
+<style>
+:root{
+ --bg:#f5f6f7;--paper:#fff;--soft:#fafbfc;--text:#17191c;--text2:#444b52;--muted:#747c84;
+ --line:#e0e4e7;--line2:#ccd2d7;--red:#c8102e;--redd:#9f0d25;--redsoft:#fff5f7;
+ --green:#23653b;--greensoft:#f0faf4;--amber:#765500;--ambersoft:#fff8e5;--blue:#315f8b;--bluesoft:#f2f7fb;
+ --head:68px;--side:230px;--list:405px;--r:12px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 "Segoe UI Variable","Segoe UI",Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}button,input,select{outline:none}
+:focus-visible{outline:3px solid rgba(49,95,139,.25)!important;outline-offset:2px}
+::selection{background:#f6ccd4}
+header{height:var(--head);position:sticky;top:0;z-index:50;background:rgba(245,246,247,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hin{height:100%;max-width:1600px;margin:auto;padding:0 22px;display:grid;grid-template-columns:var(--side) minmax(360px,760px) 1fr;gap:18px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}.mark{width:27px;height:27px;background:var(--red);clip-path:polygon(0 0,100% 0,82% 100%,0 100%)}
+.brand b{font-size:13px;letter-spacing:.045em}.brand small{display:block;color:var(--muted);font-size:10.5px;margin-top:1px}
+.search{position:relative}.search svg{position:absolute;left:14px;top:13px;width:18px;height:18px;stroke:var(--muted)}
+#q{width:100%;height:44px;border:1px solid var(--line2);border-radius:10px;background:white;padding:0 72px 0 42px;color:var(--text)}
+#q:focus{border-color:#aeb6bc;box-shadow:0 0 0 3px rgba(200,16,46,.055)}#q::placeholder{color:#899199}
+.key{position:absolute;right:10px;top:10px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:#fbfbfc;color:var(--muted);font-size:10px;padding:3px 7px}
+.hact{display:flex;justify-content:flex-end;gap:7px}.btn,.ib{border:1px solid var(--line);background:white;color:var(--text2);border-radius:9px;min-height:36px}
+.btn{padding:7px 10px}.btn:hover,.ib:hover{border-color:#b4bcc2;background:#fbfbfc}.btn.primary{background:var(--red);border-color:var(--red);color:white;font-weight:650}.btn.primary:hover{background:var(--redd)}
+.btn.active{background:var(--redsoft);border-color:#e2b3bc;color:var(--red)}.ib{width:36px;display:grid;place-items:center}.ib svg{width:16px;height:16px;stroke:currentColor}.mobilefilter{display:none}
+.shell{max-width:1600px;margin:auto;padding:16px 22px 24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
+.tabs{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);background:#eceff1;border-radius:10px}
+.tab{border:0;background:transparent;color:var(--text2);padding:7px 13px;border-radius:7px;font-size:12px;font-weight:620}.tab.active{background:white;color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.topnote{font-size:11.5px;color:var(--muted);text-align:right}
+.grid{display:grid;grid-template-columns:var(--side) minmax(0,1fr);gap:18px}
+.side{position:sticky;top:calc(var(--head) + 16px);align-self:start;max-height:calc(100vh - var(--head) - 32px);overflow:auto;padding-right:5px;scrollbar-width:thin}
+.fg{margin-bottom:21px}.ft{margin:0 0 7px;color:var(--muted);font-size:10px;font-weight:760;letter-spacing:.095em;text-transform:uppercase}
+.sel{width:100%;height:36px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--text2);padding:0 9px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}.pill{border:1px solid var(--line);background:white;color:var(--text2);border-radius:999px;padding:6px 8px;font-size:10.5px}.pill.active{background:var(--redsoft);border-color:#e1aeb8;color:var(--red)}
+.frow{width:100%;border:0;background:transparent;border-radius:7px;padding:7px 8px;color:var(--text2);display:flex;justify-content:space-between;align-items:center;text-align:left}.frow:hover{background:#eceff1}.frow.active{background:var(--redsoft);color:var(--red);font-weight:620}
+.toggle{width:34px;height:20px;border-radius:999px;background:#d8dde1;padding:2px}.toggle:after{content:"";display:block;width:16px;height:16px;background:white;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.14);transition:.15s}.frow.active .toggle{background:var(--red)}.frow.active .toggle:after{transform:translateX(14px)}
+.sidenote{border-top:1px solid var(--line);padding-top:13px;color:var(--muted);font-size:10.7px;line-height:1.55}.sidenote b{color:var(--text2)}
+.work{min-width:0;min-height:calc(100vh - 112px);display:grid;grid-template-columns:var(--list) minmax(0,1fr);background:white;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.listpane{min-width:0;border-right:1px solid var(--line);display:flex;flex-direction:column;max-height:calc(100vh - 112px)}
+.toolbar{min-height:58px;padding:10px 13px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.count b{display:block;font-size:13px}.count span{display:block;color:var(--muted);font-size:10.5px;margin-top:1px}.ta{display:flex;gap:6px}
+.af{display:none;gap:5px;flex-wrap:wrap;padding:7px 10px;border-bottom:1px solid var(--line);background:#fcfcfd}.af.show{display:flex}
+.achip{border:1px solid var(--line);background:white;color:var(--text2);border-radius:999px;padding:5px 7px;font-size:10px}
+#results{overflow:auto;scrollbar-width:thin}.res{width:100%;display:block;text-align:left;border:0;border-bottom:1px solid #eef0f2;background:white;padding:12px 13px;position:relative;color:var(--text)}
+.res:hover{background:#fafbfc}.res.active{background:#fff9fa}.res.active:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.rtop{display:flex;justify-content:space-between;gap:8px}.rname{font-size:15.5px;font-weight:760;line-height:1.22}.tags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.tag{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px 6px;color:var(--muted);font-size:9px;line-height:1;white-space:nowrap}.tag.sup{background:var(--redsoft);border-color:#e3b2bc;color:var(--red)}.tag.web{background:var(--greensoft);border-color:#bee0c8;color:var(--green)}.tag.warn{background:var(--ambersoft);border-color:#dfc97f;color:var(--amber)}.tag.ai{background:var(--bluesoft);border-color:#c5d7e7;color:var(--blue)}.tag.merge{background:#f4f5f6;border-color:#d8dde1;color:#626a71}
+.prov{margin-top:8px}
+.prov summary{cursor:pointer;color:var(--text2);font-size:11px;font-weight:650}
+.provbody{padding-top:10px}
+.variantline{padding:5px 0;color:var(--muted);font-size:10.5px;border-bottom:1px dashed var(--line)}
+.variantline:last-child{border-bottom:0}
+
+
+
+
+.rsub{font-size:11.5px;color:var(--text2);margin-top:5px}.rmeta{font-size:10.5px;color:var(--muted);margin-top:4px}.codes{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.code{background:#f1f3f4;border-radius:5px;padding:3px 5px;color:#3a4248;font-size:10px;font-variant-numeric:tabular-nums}.code i{font-style:normal;color:#899198;font-size:8px;text-transform:uppercase;margin-right:3px}
+mark{background:#fff0b9;color:inherit;border-radius:2px;padding:0 .08em}.empty{padding:50px 24px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--text2);font-size:14px;margin-bottom:5px}.foot{padding:9px 12px 12px;text-align:center;color:var(--muted);font-size:9.5px}
+.detailpane{min-width:0;max-height:calc(100vh - 112px);overflow:auto;scrollbar-width:thin}.detail{max-width:950px;margin:auto;padding:28px 34px 42px}
+.kicker{color:var(--red);font-size:10px;font-weight:760;text-transform:uppercase;letter-spacing:.095em;margin-bottom:6px}.dhead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.title{font-size:36px;line-height:1.03;letter-spacing:-.032em;margin:0;font-weight:800}.subtitle{margin-top:9px;color:var(--text2);font-size:15px}.trans{margin-top:4px;color:var(--muted);font-size:12px}.dact{display:flex;gap:6px;flex:0 0 auto}
+.meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:13px}.mchip{background:#f1f3f4;color:#555d64;border-radius:999px;padding:5px 7px;font-size:9.8px}.mchip.good{background:var(--greensoft);color:var(--green)}.mchip.warn{background:var(--ambersoft);color:var(--amber)}.mchip.source{background:var(--redsoft);color:var(--red)}.mchip.ai{background:var(--bluesoft);color:var(--blue)}
+.lensbar{padding-top:14px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.lenslabel{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.lenstabs{display:inline-flex;gap:2px;padding:3px;background:#f2f4f5;border:1px solid var(--line);border-radius:9px}.lens{border:0;background:transparent;border-radius:6px;padding:5px 8px;color:var(--text2);font-size:10.5px}.lens.active{background:white;color:var(--text);font-weight:650;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.lensnote{margin-top:10px;padding:10px 12px;border-left:3px solid var(--red);background:#fffafb;color:var(--text2);font-size:11.5px;line-height:1.55}
+.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:18px 0 3px;border:1px solid var(--line);border-radius:10px;overflow:hidden}.qi{padding:11px 12px;background:#fbfbfc;border-right:1px solid var(--line)}.qi:last-child{border-right:0}.qi b{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}.qi span{font-size:11.5px;color:var(--text2);font-weight:620}.goodtxt{color:var(--green)!important}.warntxt{color:var(--amber)!important}
+.sec{padding:19px 0;border-bottom:1px solid var(--line)}.sec:last-child{border-bottom:0}.sectitle{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:9px}.sectitle h2{margin:0;color:var(--muted);font-size:10px;font-weight:760;text-transform:uppercase;letter-spacing:.09em}.sectitle span{color:var(--muted);font-size:9.5px}.body{margin:0;color:var(--text2);font-size:13px;line-height:1.67}.opm{padding-left:13px;border-left:3px solid var(--red)}
+.callout{margin-top:10px;padding:10px 12px;border-left:3px solid #c7a648;background:var(--ambersoft);color:#644e13;font-size:11.5px;line-height:1.55}
+.info{display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--line)}.il,.iv{padding:8px 0;border-bottom:1px solid var(--line)}.il{font-size:10.5px;color:var(--muted)}.iv{font-size:11.5px;color:var(--text2);font-weight:520}
+.entities{display:flex;flex-direction:column;gap:10px}.entity{border:1px solid var(--line);border-radius:10px;overflow:hidden}.ehead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:11px 12px;background:#f7f8f9;border-bottom:1px solid var(--line)}.eroute{font-size:11px;font-weight:720}.eroute small{display:block;font-weight:400;color:var(--muted);margin-top:2px}.ecode{border:1px solid #d7dce0;background:white;border-radius:7px;padding:5px 7px;font-size:11px;font-weight:730}.ecode:hover{color:var(--red);border-color:#c98a97;background:var(--redsoft)}
+.egrid{display:grid;grid-template-columns:165px minmax(0,1fr)}.ek,.ev{padding:7px 11px;border-bottom:1px solid #eef0f2}.ek{font-size:10px;color:var(--muted)}.ev{font-size:11.3px;color:var(--text2);word-break:break-word}.evidence{display:flex;gap:5px;flex-wrap:wrap}.srcbtn{display:inline-block;border:1px solid var(--line);border-radius:6px;background:white;color:var(--blue);text-decoration:none;padding:4px 6px;font-size:9.5px}.srcbtn:hover{border-color:#a9c3d8}
+.review4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.reviewcell{border:1px solid var(--line);border-radius:8px;padding:9px 10px;background:#fbfbfc}
+.reviewcell b{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:4px}
+.reviewcell span{display:block;color:var(--text2);font-size:10.5px;line-height:1.45}
+@media(max-width:900px){.review4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.review4{grid-template-columns:1fr}}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cblock{border-left:2px solid var(--line);padding-left:11px}.cblock h3{margin:0 0 6px;font-size:10.5px}.mail{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--blue);font-size:11px;text-decoration:none;padding:2px 0}.mail:hover{text-decoration:underline}
+.raw summary,.coll summary{cursor:pointer;color:var(--text2);font-size:11px;font-weight:620}.rawbody{padding-top:8px;color:var(--muted);font-size:10.5px;white-space:pre-wrap;line-height:1.5}
+.srcrow{display:flex;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px dashed var(--line)}.srcrow:last-child{border-bottom:0}.srcrow b{font-size:11px}.srcrow span{font-size:10.5px;color:var(--muted)}
+
+
+
+
+.process-flow{display:flex;flex-direction:column;gap:0;margin-top:4px}
+.pstep{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:flex-start;position:relative;padding:6px 0 12px}
+.pstep:not(:last-child):after{content:"";position:absolute;left:14px;top:31px;bottom:-1px;width:1px;background:var(--line2)}
+.pnum{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:var(--redsoft);color:var(--red);font-size:10px;font-weight:760;z-index:1}
+.ptext{padding-top:4px;color:var(--text2);font-size:12px;line-height:1.55}
+.rulelist{display:flex;flex-direction:column;gap:7px}
+.rule{display:grid;grid-template-columns:7px minmax(0,1fr);gap:9px;color:var(--text2);font-size:12px;line-height:1.55}
+.rule:before{content:"";width:5px;height:5px;border-radius:50%;background:#aeb5bb;margin-top:7px}
+.rule.open:before{background:#c5a13e}
+.rule.example:before{background:var(--red)}
+
+
+
+
+.rolebar{display:flex;gap:7px;flex-wrap:wrap}
+.rolechip{position:relative;border:1px solid var(--line);background:white;border-radius:999px;padding:7px 10px;color:var(--text2);font-size:10.5px;line-height:1;cursor:pointer}
+.rolechip:hover{border-color:#c98a97;color:var(--red);background:var(--redsoft)}
+.rolechip[data-pic]:hover:after{content:attr(data-pic);position:absolute;left:0;top:calc(100% + 7px);z-index:15;min-width:220px;max-width:340px;padding:8px 9px;border-radius:7px;background:#17191c;color:white;font-size:10px;line-height:1.4;white-space:normal;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.rolehint{font-size:9.5px;color:var(--muted);margin-top:7px}
+.process-meta{display:grid;grid-template-columns:160px 1fr;border-top:1px solid var(--line)}
+.process-meta .il,.process-meta .iv{padding:8px 0;border-bottom:1px solid var(--line)}
+.tag.proc{background:var(--bluesoft);border-color:#c5d7e7;color:var(--blue)}
+.related{display:flex;gap:6px;flex-wrap:wrap}.related button,.variant{border:1px solid var(--line);background:white;color:var(--text2)}.related button{border-radius:999px;padding:6px 8px;font-size:10.5px}.related button:hover,.variant:hover{border-color:#c98a97;color:var(--red)}.variant{width:100%;text-align:left;border-radius:8px;padding:8px 9px;margin-top:6px}.variant small{display:block;color:var(--muted);margin-top:2px}
+.drawer,.backdrop{display:none}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:#17191c;color:white;border-radius:8px;padding:10px 12px;font-size:11px;opacity:0;transform:translateY(8px);transition:.18s;pointer-events:none}.toast.show{opacity:1;transform:none}
+@media(max-width:1200px){:root{--side:210px;--list:360px}.hin{grid-template-columns:210px minmax(320px,1fr) auto}.brand small{display:none}.detail{padding:24px 26px 38px}}
+@media(max-width:960px){:root{--side:0px;--list:340px}.hin{grid-template-columns:auto minmax(260px,1fr) auto;padding:0 14px}.brand b{display:none}.grid{grid-template-columns:1fr}.side{display:none}.mobilefilter{display:inline-block}.work{grid-template-columns:340px minmax(0,1fr)}}
+@media(max-width:760px){header{height:auto}.hin{min-height:62px;padding:9px 10px;gap:8px}.key{display:none}.savedlabel{display:none}#q{padding-right:12px}.shell{padding:8px 0 18px}.top{padding:0 10px;margin-bottom:8px}.topnote{display:none}.tabs{width:100%;display:grid;grid-template-columns:repeat(4,1fr)}.tab{padding:7px 5px}.work{display:block;border-left:0;border-right:0;border-radius:0;min-height:auto}.listpane{max-height:none;border-right:0}.detailpane{max-height:none;border-top:8px solid var(--bg)}.detail{padding:22px 17px 34px}.dhead{flex-direction:column}.title{font-size:31px}.dact{width:100%}.dact .btn{flex:1}.quick{grid-template-columns:repeat(2,1fr)}.qi:nth-child(2){border-right:0}.qi:nth-child(-n+2){border-bottom:1px solid var(--line)}.egrid{grid-template-columns:120px 1fr}.contacts{grid-template-columns:1fr}.info{grid-template-columns:125px 1fr}.drawer{display:block;position:fixed;z-index:90;top:0;left:0;bottom:0;width:min(86vw,320px);background:white;transform:translateX(-102%);transition:.2s;padding:18px 16px 26px;overflow:auto;box-shadow:16px 0 34px rgba(0,0,0,.12)}.drawer.show{transform:translateX(0)}.backdrop{position:fixed;inset:0;z-index:80;background:rgba(15,18,20,.3)}.backdrop.show{display:block}.drawerhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* V14 supplier directory */
+.rtop{align-items:flex-start}.tags{flex:0 0 auto;flex-wrap:nowrap;align-items:flex-start}
+.tag{width:auto!important;min-width:max-content;max-width:none;min-height:0!important;height:auto!important;flex:0 0 auto;align-items:center;justify-content:center;padding:4px 8px;line-height:1.1;white-space:nowrap}
+.supplier-card{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;margin-top:14px}
+.supplier-row{display:grid;grid-template-columns:165px minmax(0,1fr);border-bottom:1px solid #eef0f2}.supplier-row:last-child{border-bottom:0}
+.supplier-key{padding:12px 14px;background:#fafbfc;color:var(--muted);font-size:10px;font-weight:760;text-transform:uppercase;letter-spacing:.065em}
+.supplier-val{padding:12px 14px;color:var(--text2);font-size:12.5px;line-height:1.6;min-width:0}
+.vendorline,.contactline,.relationline{padding:4px 0;border-bottom:1px dashed #e8ebed}.vendorline:last-child,.contactline:last-child,.relationline:last-child{border-bottom:0}
+.vendorcode{display:inline-flex;align-items:center;border:1px solid #d8dde1;background:#f6f7f8;border-radius:7px;padding:3px 7px;margin-right:7px;font-weight:760;font-variant-numeric:tabular-nums;color:var(--text)}
+.sitesrc{font-size:10.5px;color:var(--muted)}.researchnote{margin-top:7px;color:var(--amber);font-size:10.5px;line-height:1.55}
+.part_examples{margin-top:7px;color:var(--text2)}.part_examples b{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.noinfo{color:var(--muted)}
+@media(max-width:620px){.supplier-row{grid-template-columns:1fr}.supplier-key{padding-bottom:5px}.supplier-val{padding-top:5px}}
+</style>
+</head>
+<body>
+<header><div class="hin">
+ <div class="brand"><div class="mark"></div><div><b>OPM NPD DICTIONARY</b><small>V14 • Knowledge + Playbooks + Supplier Directory</small></div></div>
+ <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg><input id="q" type="search" placeholder="Search term, process, role/PIC, vendor code, tax ID, supplier…"><span class="key">/</span></div>
+ <div class="hact"><button id="filterBtn" class="btn mobilefilter">Filters</button><button id="savedBtn" class="btn">☆ <span class="savedlabel">Saved</span></button></div>
+</div></header>
+<div class="shell">
+ <div class="top"><div class="tabs"><button class="tab active" data-scope="All">All</button><button class="tab" data-scope="Glossary">Dictionary</button><button class="tab" data-scope="Process">Processes</button><button class="tab" data-scope="Supplier">Suppliers</button></div><div id="topnote" class="topnote">One search across terminology and supplier intelligence.</div></div>
+ <div class="grid"><aside id="side" class="side"></aside><section class="work">
+  <div class="listpane"><div class="toolbar"><div class="count"><b id="count">Loading…</b><span id="mode">Search-ready</span></div><div class="ta">
+   <button id="exportBtn" class="ib" title="Export filtered"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg></button>
+   <button id="clearBtn" class="ib" title="Clear"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5l14 14M19 5 5 19"></path></svg></button>
+  </div></div><div id="active" class="af"></div><div id="results"></div><div id="foot" class="foot"></div></div>
+  <article id="detailpane" class="detailpane"><div id="detail" class="detail"></div></article>
+ </section></div>
+</div>
+<div id="backdrop" class="backdrop"></div><aside id="drawer" class="drawer"><div class="drawerhead"><b>Filters</b><button id="closeDrawer" class="btn">Close</button></div><div id="mobileFilters"></div></aside><div id="toast" class="toast"></div>
+<script>
+let DATA=[],FILTERED=[],selected=0,lastModified='';
+const savedRaw=localStorage.getItem('milV14Saved')||localStorage.getItem('milV13Saved')||localStorage.getItem('milV12Saved')||localStorage.getItem('milV8Saved')||'[]';
+const lensRaw=localStorage.getItem('milV14Lens')||localStorage.getItem('milV13Lens')||localStorage.getItem('milV12Lens')||localStorage.getItem('milV8Lens')||'OPM';
+const state={q:'',scope:'All',category:'All',levels:new Set(),commodity:'All',buyer:'All',route:'All',research:'All',needsCheck:false,openOnly:false,ambiguous:false,savedOnly:false,lens:lensRaw,saved:new Set(JSON.parse(savedRaw))};
+const $=id=>document.getElementById(id);
+const LENS={
+ OPM:'Confirm the correct TTI buying route/vendor code first, then check entity status, product scope, contact and verification gaps before FAI/SER/build follow-up.',
+ Sourcing:'Prioritize legal entity, Tax/Registration ID, registered address, buyer, currency, products/capabilities and supplier contact.',
+ Quality:'Prioritize factory/legal-entity identity, manufacturing location, product/process capability, registration/status and any mismatch before FAI/SER or supplier-quality activity.',
+ Management:'Prioritize coverage, ownership, operational status, product scope and unresolved data risks; keep contact-level detail secondary.'
+};
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const norm=s=>String(s??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const split=s=>String(s||'').split(/\s*\|\s*/).map(v=>v.trim()).filter(Boolean);
+const uniq=a=>[...new Set(a.filter(Boolean))];
+function parseCSV(text){text=String(text||'').replace(/^\uFEFF/,'');const rows=[];let row=[],f='',q=false;for(let i=0;i<text.length;i++){const c=text[i];if(q){if(c==='"'){if(text[i+1]==='"'){f+='"';i++}else q=false}else f+=c;continue}if(c==='"')q=true;else if(c===','){row.push(f);f=''}else if(c==='\n'){row.push(f);f='';if(row.some(v=>String(v).trim()))rows.push(row);row=[]}else if(c!=='\r')f+=c}row.push(f);if(row.some(v=>String(v).trim()))rows.push(row);return rows}
+function hash(parts){const s=parts.join('||');let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return'g_'+(h>>>0).toString(36)}
+function records(text){
+ const rows=parseCSV(text),hd=rows[0].map(h=>norm(h).replace(/\s+/g,' ').trim()),ix={};hd.forEach((h,i)=>ix[h]=i);
+ const cell=(r,...ns)=>{for(const n of ns){const k=norm(n).replace(/\s+/g,' ').trim();if(k in ix)return String(r[ix[k]]??'').trim()}return''},a=[];
+ for(const r of rows.slice(1)){const term=cell(r,'Term');if(!term)continue;const type=cell(r,'Record Type')||'Glossary';if(type==='Supplier'&&!/[A-Za-zÀ-ỹ]/.test(term))continue;
+  const x={term,type,full:cell(r,'Full Name / Meaning')||term,vi:cell(r,'Vietnamese'),category:cell(r,'Category'),level:cell(r,'Level'),purpose:cell(r,'Purpose'),opm:cell(r,'OPM Focus'),owner:cell(r,'Owner'),sources:split(cell(r,'Sources')),refs:split(cell(r,'Source Refs')),related:String(cell(r,'Related')).split(/\s*(?:\||,)\s*/).filter(Boolean),aliases:String(cell(r,'Aliases')).split(/\s*\|\s*/).filter(Boolean),viDef:cell(r,'Vietnamese Definition'),plainVi:cell(r,'Plain Vietnamese'),opmExample:cell(r,'OPM Example'),provenance:cell(r,'Content Provenance'),short:cell(r,'Supplier Short Name'),commodity:cell(r,'Commodity Categories'),buyer:cell(r,'Commodity Buyers'),emails:cell(r,'Current Supplier Emails'),internal:cell(r,'TTI Internal Emails'),mainContacts:cell(r,'Main Contacts'),currencies:cell(r,'Currencies'),contactVendorRecords:cell(r,'Contact Vendor Records'),remarks:cell(r,'Supplier Remarks'),dq:cell(r,'Data Quality Notes'),entityJson:cell(r,'Supplier Entity Details JSON'),taxIds:cell(r,'Tax / Registration IDs'),regAddresses:cell(r,'Registered Addresses'),verifiedProducts:cell(r,'Public Verified Products / Capabilities'),externalSources:cell(r,'External Research Sources'),researchStatus:cell(r,'Research Status'),lastReview:cell(r,'Last External Review'),vnRegisteredNames:cell(r,'Vietnamese Registered Names'),legalRepresentatives:cell(r,'Legal Representatives'),legalReview:cell(r,'Legal Review Status'),purchasingReview:cell(r,'Purchasing Review Status'),customerReview:cell(r,'Customer / OPM Review Status'),searchReview:cell(r,'Search Specialist Review Status'),entityReviewSummary:cell(r,'Entity Review Summary'),sourceVariants:split(cell(r,'Source Variants')),mergedCount:Number(cell(r,'Merged From Count')||1),processSteps:split(cell(r,'Process Steps')),workingRules:split(cell(r,'Working Rules')),processExample:split(cell(r,'Process Example')),openChecks:split(cell(r,'Open Checks')),applicability:cell(r,'Applicability'),rolePicJson:cell(r,'Role PIC Mapping JSON'),processType:cell(r,'Process Type')};
+  try{x.entities=x.entityJson?JSON.parse(x.entityJson):[]}catch(e){x.entities=[]}
+  try{x.rolePics=x.rolePicJson?JSON.parse(x.rolePicJson):{}}catch(e){x.rolePics={}}
+  x.vendorCodes=uniq(x.entities.map(e=>e.vendor_code));x.id=hash([x.term,x.full,x.type,x.sources.join('|')]);
+  x._search=norm([x.term,x.full,x.vi,x.viDef,x.plainVi,x.opm,x.opmExample,x.owner,x.category,x.level,x.short,x.commodity,x.buyer,x.taxIds,x.regAddresses,x.verifiedProducts,x.researchStatus,x.vnRegisteredNames,x.legalRepresentatives,x.legalReview,x.purchasingReview,x.customerReview,x.searchReview,x.processType,...Object.keys(x.rolePics||{}),...Object.values(x.rolePics||{}),...x.processSteps,...x.workingRules,...x.processExample,...x.openChecks,x.applicability,...x.vendorCodes,...x.aliases,...x.related,...x.entities.flatMap(e=>[e.source_legal_name,e.source_manufacturing_location,e.registered_legal_name,e.registration_id,e.registered_address,e.verified_products_capabilities,e.operational_status,e.jurisdiction])].join(' '));a.push(x)
+ }
+ const g=new Map();
+ for(const x of a){if(x.type!=='Glossary')continue;const k=norm(x.term);if(!g.has(k))g.set(k,[]);g.get(k).push(x)}
+ for(const x of a){if(x.type==='Glossary'){x.meaningCount=(g.get(norm(x.term))||[]).length;x.ambiguous=x.meaningCount>1}else{x.meaningCount=1;x.ambiguous=false}}
+ return a
+}
+function webCount(x){return x.entities.filter(e=>e.verification_status==='Externally researched').length}
+function routePresent(x,r){return x.entities.some(e=>e.route===r)}
+function score(x,q){if(!q)return 1;const n=norm(q.trim()),t=norm(x.term),f=norm(x.full);if(x.type==='Supplier'){const c=norm(x.commodity);if(c===n)return 180;if(c.startsWith(n))return 130;if(c.includes(n))return 106;const w=n.split(/\s+/).filter(Boolean);return w.every(z=>c.includes(z))?38:0}if(t===n)return 180;if(x.aliases.some(a=>norm(a)===n))return 160;if(t.startsWith(n))return 130;if(t.includes(n))return 106;if(f.startsWith(n))return 94;if(f.includes(n))return 80;const w=n.split(/\s+/).filter(Boolean);return w.every(z=>x._search.includes(z))?38:0}
+function results(){
+ const q=state.q.trim();return DATA.map(x=>({x,s:score(x,q)})).filter(o=>o.s>0)
+ .filter(o=>state.scope==='All'||o.x.type===state.scope)
+ .filter(o=>(o.x.type!=='Glossary'&&o.x.type!=='Process')||state.category==='All'||o.x.category===state.category)
+ .filter(o=>o.x.type!=='Glossary'||!state.levels.size||state.levels.has(o.x.level))
+ .filter(o=>o.x.type!=='Glossary'||!state.ambiguous||o.x.ambiguous)
+ .filter(o=>o.x.type!=='Process'||!state.openOnly||o.x.openChecks.length>0)
+ .filter(o=>o.x.type!=='Supplier'||state.commodity==='All'||split(o.x.commodity).includes(state.commodity))
+ .filter(o=>o.x.type!=='Supplier'||state.buyer==='All'||split(o.x.buyer).includes(state.buyer))
+ .filter(o=>o.x.type!=='Supplier'||state.route==='All'||routePresent(o.x,state.route))
+ .filter(o=>o.x.type!=='Supplier'||state.research==='All'||(state.research==='Externally researched'?webCount(o.x)>0:webCount(o.x)===0))
+ .filter(o=>o.x.type!=='Supplier'||!state.needsCheck||(o.x.dq||o.x.entities.some(e=>String(e.external_research_note||'').trim()||e.verification_status==='Needs verification')))
+ .filter(o=>!state.savedOnly||state.saved.has(o.x.id))
+ .sort((a,b)=>q&&b.s!==a.s?b.s-a.s:a.x.term.localeCompare(b.x.term)).map(o=>o.x)
+}
+function opts(a,v){return a.map(x=>`<option value="${esc(x)}" ${x===v?'selected':''}>${esc(x)}</option>`).join('')}
+function filters(){
+ if(state.scope==='All'){
+  return `<div class="fg"><div class="ft">How to narrow</div><div class="sidenote" style="border-top:0;padding-top:0">
+   <b>Search first.</b><br><br>
+   Use <b>Dictionary</b> for terms, <b>Processes</b> for working flows/rules, and <b>Suppliers</b> for vendor/entity data.
+   <br><br>Source is intentionally not a filter; it is shown only as provenance inside each record.
+  </div></div>`
+ }
+ if(state.scope==='Supplier'){const s=DATA.filter(x=>x.type==='Supplier'),com=['All',...uniq(s.flatMap(x=>split(x.commodity))).sort()];
+  return `<div class="fg"><div class="ft">Commodity</div><select class="sel" data-select="commodity">${opts(com,state.commodity)}</select></div>
+  <div class="sidenote"><b>Supplier view:</b><br>Search and filter by commodity only. Details show vendor code, possible parts, address, supplier contacts, internal TTI relation and working notes.</div>`
+ }
+ if(state.scope==='Process'){
+  const p=DATA.filter(x=>x.type==='Process'),cats=['All',...uniq(p.map(x=>x.category)).sort()];
+  return `<div class="fg"><div class="ft">Process category</div><select class="sel" data-select="category">${opts(cats,state.category)}</select></div>
+  <div class="fg"><button class="frow ${state.openOnly?'active':''}" data-toggle="openOnly"><span>Open checks only</span><span class="toggle"></span></button></div>
+  <div class="sidenote"><b>Process view:</b><br>Use flows, working rules, examples and open checks. Source is evidence at the bottom of the playbook, not a navigation choice.</div>`
+ }
+ const g=DATA.filter(x=>x.type==='Glossary'),cats=['All',...uniq(g.map(x=>x.category)).sort()],lev=uniq(g.map(x=>x.level)).sort();
+ return `<div class="fg"><div class="ft">Category</div><select class="sel" data-select="category">${opts(cats,state.category)}</select></div>
+ <div class="fg"><div class="ft">Knowledge level</div><div class="pills">${lev.map(l=>`<button class="pill ${state.levels.has(l)?'active':''}" data-level="${esc(l)}">${esc(l)}</button>`).join('')}</div></div>
+ <div class="fg"><button class="frow ${state.ambiguous?'active':''}" data-toggle="ambiguous"><span>Ambiguous terms only</span><span class="toggle"></span></button></div>
+ <div class="sidenote"><b>Dictionary view:</b><br>Filter by what the term is about and how important it is. Same-meaning records from multiple sources are consolidated into one result.</div>`
+}
+function wire(root){
+ root.querySelectorAll('[data-select]').forEach(e=>e.onchange=()=>{
+   state[e.dataset.select]=e.value;selected=0;render();closeDrawer()
+ });
+ root.querySelectorAll('[data-route]').forEach(e=>e.onclick=()=>{
+   state.route=e.dataset.route;selected=0;render();closeDrawer()
+ });
+ root.querySelectorAll('[data-research]').forEach(e=>e.onclick=()=>{
+   state.research=e.dataset.research;selected=0;render();closeDrawer()
+ });
+ root.querySelectorAll('[data-level]').forEach(e=>e.onclick=()=>{
+   const l=e.dataset.level;
+   state.levels.has(l)?state.levels.delete(l):state.levels.add(l);
+   selected=0;render()
+ });
+ root.querySelectorAll('[data-toggle]').forEach(e=>e.onclick=()=>{
+   state[e.dataset.toggle]=!state[e.dataset.toggle];selected=0;render()
+ });
+}
+function renderFilters(){const h=filters();$('side').innerHTML=h;$('mobileFilters').innerHTML=h;wire($('side'));wire($('mobileFilters'))}
+function hi(s,q){s=String(s||'');if(!q)return esc(s);const n=norm(q.trim()),ns=norm(s),i=ns.indexOf(n);if(i<0)return esc(s);return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.trim().length))+'</mark>'+esc(s.slice(i+q.trim().length))}
+function routeCodeLabel(e){const r=String(e.route||'');if(r.includes('→ TTI PRC'))return'PRC';if(r.includes('PRC supplier → TTI VN'))return'PRC→VN';if(r.includes('VN supplier → TTI VN'))return'VN';if(r.includes('Oversea'))return'OVERSEA';if(r.includes('Hong Kong')||r.includes('HK'))return'HK';if(r.includes('Site unspecified'))return'SITE?';return String(e.source_manufacturing_location||'SITE').toUpperCase().slice(0,8)}
+function codechips(x){return x.entities.filter(e=>e.vendor_code).map(e=>`<span class="code"><i>${esc(routeCodeLabel(e))}</i>${esc(e.vendor_code)}</span>`).join('')}
+function renderResults(){
+ FILTERED=results();if(selected>=FILTERED.length)selected=Math.max(0,FILTERED.length-1);
+ const label=state.scope==='Supplier'?'supplier profiles':state.scope==='Process'?'process playbooks':'results';
+ $('count').textContent=`${FILTERED.length.toLocaleString()} ${label}`;
+ $('mode').textContent=state.q?'Ranked by relevance':state.scope==='Supplier'?'Supplier 360°':state.scope==='Process'?'OPM playbooks':'Bilingual knowledge';
+ if(!FILTERED.length){$('results').innerHTML='<div class="empty"><strong>No matching record</strong>Try another keyword/code or remove a filter.</div>';$('detail').innerHTML='<div class="empty"><strong>Nothing selected</strong></div>';return}
+ $('results').innerHTML=FILTERED.map((x,i)=>{
+   if(x.type==='Supplier')return `<button class="res ${i===selected?'active':''}" data-i="${i}"><div class="rtop"><div class="rname">${esc(x.term)}</div></div><div class="rsub">${hi(x.commodity,state.q)||'Commodity not confirmed'}</div><div class="codes">${codechips(x)}</div></button>`;
+   if(x.type==='Process')return `<button class="res ${i===selected?'active':''}" data-i="${i}"><div class="rtop"><div class="rname">${hi(x.term,state.q)}</div><div class="tags"><span class="tag proc">${esc(x.processType||'Playbook')}</span>${x.openChecks.length?`<span class="tag warn">${x.openChecks.length} open check${x.openChecks.length>1?'s':''}</span>`:''}</div></div><div class="rsub">${hi(x.full,state.q)}</div><div class="rmeta">${hi(x.applicability||x.vi,state.q)}</div></button>`;
+   return `<button class="res ${i===selected?'active':''}" data-i="${i}"><div class="rtop"><div class="rname">${hi(x.term,state.q)}</div><div class="tags">${x.ambiguous?`<span class="tag warn">${x.meaningCount} meanings</span>`:''}${x.mergedCount>1?`<span class="tag merge">${x.mergedCount} sources merged</span>`:''}${x.provenance.includes('AI-assisted')?'<span class="tag ai">Working explanation</span>':''}</div></div><div class="rsub">${hi(x.full,state.q)}</div><div class="rmeta">${hi(x.vi,state.q)}</div></button>`;
+ }).join('');
+ $('results').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.i);renderOnly();if(innerWidth<=760)$('detailpane').scrollIntoView({behavior:'smooth',block:'start'})})
+}
+function emails(s){const a=split(s);return a.length?a.slice(0,5).map(e=>`<a class="mail" href="mailto:${encodeURIComponent(e)}">${esc(e)}</a>`).join('')+(a.length>5?`<details class="raw"><summary>Show ${a.length-5} more</summary><div class="rawbody">${a.slice(5).map(esc).join('\n')}</div></details>`:''):'<span class="rmeta">No contact found in source</span>'}
+function entityHTML(e){
+ const web=e.verification_status==='Externally researched',bad=e.verification_status==='Needs verification'||String(e.external_research_note||'').trim(),
+ sources=(e.source_urls||[]).map((u,i)=>`<a class="srcbtn" href="${esc(u)}" target="_blank" rel="noopener">${u.includes('masothue.com')?'MaSoThue':u.includes('thuvienphapluat.vn')?'ThuVienPhapLuat':u.includes('gov.vn')?'Gov source':`Source ${i+1}`}</a>`).join('');
+ return `<div class="entity"><div class="ehead"><div class="eroute">${esc(e.route)}<small>${web?'External entity research available':e.verification_status}</small></div>${e.vendor_code?`<button class="ecode" data-copy="${esc(e.vendor_code)}">${esc(e.vendor_code)}</button>`:''}</div><div class="egrid">
+ <div class="ek">TTI source legal name</div><div class="ev">${esc(e.source_legal_name||'—')}</div>
+ <div class="ek">Source manufacture location</div><div class="ev">${esc(e.source_manufacturing_location||'—')}</div>
+ <div class="ek">Vietnamese registered name</div><div class="ev">${esc(e.registered_vietnamese_name||'Not externally verified')}</div>
+ <div class="ek">Registered / researched entity</div><div class="ev">${esc(e.registered_legal_name||'Not externally verified')}</div>
+ <div class="ek">Tax / Registration ID</div><div class="ev">${esc(e.registration_id||'Not externally verified')}</div>
+ <div class="ek">Legal representative</div><div class="ev">${esc(e.legal_representative||'Not externally verified')}</div>
+ <div class="ek">Jurisdiction</div><div class="ev">${esc(e.jurisdiction||'Not externally verified')}</div>
+ <div class="ek">Registered address</div><div class="ev">${esc(e.registered_address||'Not externally verified')}</div>
+ <div class="ek">Operational status</div><div class="ev">${esc(e.operational_status||'Not externally verified')}</div>
+ <div class="ek">TTI sourcing commodity</div><div class="ev">${esc(e.tti_sourced_commodity||'—')}</div>
+ <div class="ek">Public products / capabilities</div><div class="ev">${esc(e.verified_products_capabilities||'Not externally verified. Do not infer the full company portfolio from the TTI commodity alone.')}</div>
+ <div class="ek">Entity match / confidence</div><div class="ev">${esc(e.entity_match_confidence||e.match_type||e.verification_status)}</div>
+ ${bad?`<div class="ek">Verification note</div><div class="ev warntxt">${esc(e.external_research_note||'Source row requires verification.')}</div>`:''}
+ <div class="ek">Evidence</div><div class="ev evidence">${sources||'<span class="rmeta">External source not added</span>'}</div>
+ </div></div>`
+}
+function quick(x){const n=x.entities.length,w=webCount(x),bad=x.dq||x.entities.some(e=>e.external_research_note||e.verification_status==='Needs verification');return `<div class="quick"><div class="qi"><b>Mapped entities</b><span>${n}</span></div><div class="qi"><b>Externally researched</b><span class="${w?'goodtxt':''}">${w}/${n}</span></div><div class="qi"><b>Data status</b><span class="${bad?'warntxt':'goodtxt'}">${bad?'Review flags':'No issue flagged'}</span></div><div class="qi"><b>Currency</b><span>${esc(x.currencies||'—')}</span></div></div>`}
+function contactRows(s,kind='contactline'){return String(s||'').split(/\s*\|\|\s*/).map(v=>v.trim()).filter(Boolean).map(v=>`<div class="${kind}">${esc(v)}</div>`).join('')}
+function internalRows(x){const a=uniq([...String(x.mainContacts||'').split(/\s*\|\s*/),...split(x.internal)]).map(v=>v.trim()).filter(v=>v&&!/^SQE:\s*#N\/A$/i.test(v)&&!/^PMC:\s*#N\/A$/i.test(v));return a.length?a.map(v=>`<div class="relationline">${esc(v)}</div>`).join(''):'<span class="noinfo">No internal working relation recorded.</span>'}
+function supplierContactRows(x){if(x.contactVendorRecords)return contactRows(x.contactVendorRecords);const a=split(x.emails);return a.length?a.map(v=>`<div class="contactline"><a class="mail" href="mailto:${encodeURIComponent(v)}">${esc(v)}</a></div>`).join(''):'<span class="noinfo">No supplier contact recorded.</span>'}
+function supplierCodeRows(x){const a=(x.entities||[]).filter(e=>e.vendor_code);if(a.length)return a.map(e=>`<div class="vendorline"><span class="vendorcode">${esc(e.vendor_code)}</span><span class="sitesrc">${esc(e.source_manufacturing_location||e.route||'Site unspecified')}</span></div>`).join('');return x.vendorCodes.length?x.vendorCodes.map(v=>`<div class="vendorline"><span class="vendorcode">${esc(v)}</span></div>`).join(''):'<span class="noinfo">No vendor code recorded.</span>'}
+function renderSupplier(x){
+ const suggested=/suggested commodity/i.test(x.researchStatus||'');const notes=uniq([x.remarks,x.dq].filter(v=>v&&!/^Group Commodity:/i.test(v)));
+ $('detail').innerHTML=`<div class="kicker">Supplier working profile</div><div class="dhead"><div><h1 class="title">${esc(x.term)}</h1><div class="subtitle">${esc(x.commodity||'Commodity not confirmed')}</div>${suggested?'<div class="researchnote">Commodity is a public-research suggestion because the TTI Vendor List source was N/A. Confirm with Purchasing/OPM before treating it as controlled TTI sourcing scope.</div>':''}</div><div class="dact"><button id="save" class="btn">${state.saved.has(x.id)?'★ Saved':'☆ Save'}</button><button id="copy" class="btn">Copy</button><button id="share" class="btn primary">Share</button></div></div>
+ <div class="supplier-card">
+ <div class="supplier-row"><div class="supplier-key">Vendor code</div><div class="supplier-val">${supplierCodeRows(x)}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Commodity & possible parts</div><div class="supplier-val"><b>${esc(x.commodity||'Not confirmed')}</b>${x.verifiedProducts?`<div class="part_examples"><b>Public capability examples</b><br>${esc(x.verifiedProducts)}</div>`:''}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Company address</div><div class="supplier-val">${esc(x.regAddresses||'No address verified.')}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Supplier working contacts</div><div class="supplier-val">${supplierContactRows(x)}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Internal TTI working relation</div><div class="supplier-val">${internalRows(x)}</div></div>
+ <div class="supplier-row"><div class="supplier-key">Notes / watch-outs</div><div class="supplier-val">${notes.length?notes.map(v=>`<div class="relationline">${esc(v)}</div>`).join(''):'<span class="noinfo">No working note added yet.</span>'}</div></div>
+ </div>`;bindActions(x);updateUrl(x)
+}
+function listSection(title,items,kind='rule',subtitle=''){
+ if(!items||!items.length)return '';
+ return `<section class="sec"><div class="sectitle"><h2>${esc(title)}</h2>${subtitle?`<span>${esc(subtitle)}</span>`:''}</div><div class="rulelist">${items.map(v=>`<div class="rule ${kind}"><div>${esc(v)}</div></div>`).join('')}</div></section>`
+}
+function renderProcess(x){
+ const steps=x.processSteps||[],rules=x.workingRules||[],examples=x.processExample||[],opens=x.openChecks||[];
+ $('detail').innerHTML=`<div class="kicker">OPM working playbook</div><div class="dhead"><div><h1 class="title">${esc(x.term)}</h1><div class="subtitle">${esc(x.full)}</div><div class="trans">${esc(x.vi)}</div><div class="meta"><span class="mchip">${esc(x.category)}</span><span class="mchip">${esc(x.level)}</span><span class="mchip ai">Working process</span>${opens.length?`<span class="mchip warn">${opens.length} open check${opens.length>1?'s':''}</span>`:''}</div></div><div class="dact"><button id="save" class="btn">${state.saved.has(x.id)?'★ Saved':'☆ Save'}</button><button id="copy" class="btn">Copy</button><button id="share" class="btn primary">Share</button></div></div>
+ <section class="sec"><div class="sectitle"><h2>Purpose</h2></div><p class="body">${esc(x.purpose)}</p></section>
+ <section class="sec opm"><div class="sectitle"><h2>OPM control point</h2></div><p class="body">${esc(x.opm||'—')}</p></section>
+ ${Object.keys(x.rolePics||{}).length?`<section class="sec"><div class="sectitle"><h2>Roles & current PICs</h2><span>role-based ownership</span></div><div class="rolebar">${Object.entries(x.rolePics).map(([role,pic])=>`<button class="rolechip" data-role="${esc(role)}" data-pic="${esc(pic)}" title="${esc(role)} — ${esc(pic)}">${esc(role)}</button>`).join('')}</div><div class="rolehint">Hover to see current contact. On mobile, tap a role. Names are current contacts, not permanent process owners.</div></section>`:''}
+ ${steps.length?`<section class="sec"><div class="sectitle"><h2>Standardized flow</h2><span>${steps.length} steps</span></div><div class="process-flow">${steps.map((v,i)=>`<div class="pstep"><div class="pnum">${i+1}</div><div class="ptext">${esc(v.replace(/^\d+\.\s*/,''))}</div></div>`).join('')}</div></section>`:''}
+ ${listSection('Working rules',rules,'rule')}
+ ${listSection('Examples / calculation',examples,'example')}
+ ${listSection('Open checks — confirm before automation or release',opens,'open')}
+ <section class="sec"><div class="sectitle"><h2>Applicability & ownership</h2></div><div class="process-meta"><div class="il">Applicability</div><div class="iv">${esc(x.applicability||'—')}</div><div class="il">Typical owner(s)</div><div class="iv">${esc(x.owner||'—')}</div></div><details class="prov"><summary>Source & governance</summary><div class="provbody"><div class="srcrow"><b>${esc(x.sources.join(' | '))}</b><span>${esc(x.refs.join(' | '))}</span></div><div class="callout">${esc(x.provenance)}</div></div></details></section>
+ <section class="sec"><div class="sectitle"><h2>Related terms</h2></div><div class="related">${x.related.length?x.related.map(v=>`<button data-rel="${encodeURIComponent(v)}">${esc(v)}</button>`).join(''):'<span class="body">No related terms added.</span>'}</div></section>`;
+ bindActions(x);
+ $('detail').querySelectorAll('.rolechip').forEach(b=>b.onclick=()=>toast(`${b.dataset.role} — ${b.dataset.pic}`));
+ $('detail').querySelectorAll('[data-rel]').forEach(b=>b.onclick=()=>{state.q=decodeURIComponent(b.dataset.rel);$('q').value=state.q;selected=0;render()});
+ updateUrl(x)
+}
+function variants(x){return DATA.filter(y=>y.type==='Glossary'&&norm(y.term)===norm(x.term)&&y.id!==x.id)}
+function renderGlossary(x){
+ const vs=variants(x),ai=x.provenance.includes('AI-assisted');
+ $('detail').innerHTML=`<div class="kicker">Bilingual OPM dictionary</div><div class="dhead"><div><h1 class="title">${esc(x.term)}</h1><div class="subtitle">${esc(x.full)}</div><div class="trans">${esc(x.vi)}</div><div class="meta"><span class="mchip">${esc(x.category)}</span><span class="mchip">${esc(x.level)}</span>${x.mergedCount>1?`<span class="mchip">${x.mergedCount} source records consolidated</span>`:''}${ai?'<span class="mchip ai">AI-assisted working explanation</span>':''}</div>${x.ambiguous?'<div class="callout"><b>Context matters:</b> this term has multiple records/meanings. Confirm project/BU/source context before assuming an expansion.</div>':''}</div><div class="dact"><button id="save" class="btn">${state.saved.has(x.id)?'★ Saved':'☆ Save'}</button><button id="copy" class="btn">Copy</button><button id="share" class="btn primary">Share</button></div></div>
+ <section class="sec"><div class="sectitle"><h2>Định nghĩa tiếng Việt</h2></div><p class="body">${esc(x.viDef)}</p></section>
+ <section class="sec"><div class="sectitle"><h2>Diễn giải dễ hiểu</h2></div><p class="body">${esc(x.plainVi)}</p></section>
+ <section class="sec opm"><div class="sectitle"><h2>OPM action / focus</h2></div><p class="body">${esc(x.opm||'—')}</p></section>
+ <section class="sec"><div class="sectitle"><h2>Ví dụ trong công việc OPM</h2></div><p class="body">${esc(x.opmExample)}</p></section>
+ ${x.owner?`<section class="sec"><div class="sectitle"><h2>Typical owner</h2></div><p class="body">${esc(x.owner)}</p></section>`:''}
+ ${vs.length?`<section class="sec"><div class="sectitle"><h2>Other meanings of ${esc(x.term)}</h2></div>${vs.map(v=>`<button class="variant" data-v="${v.id}">${esc(v.full)}<small>${esc(v.sources.join(' • '))}</small></button>`).join('')}</section>`:''}
+ <section class="sec"><details class="prov"><summary>Sources & provenance${x.mergedCount>1?` · ${x.mergedCount} source records consolidated`:''}</summary><div class="provbody"><p class="body">${esc(x.provenance)}</p>${ai?'<div class="callout">Vietnamese explanation is a working aid generated from the preserved source meaning. It is not a controlled Milwaukee/TTI definition. Current controlled procedures/Master Definitions take precedence.</div>':''}<div style="margin-top:10px">${x.sources.map((s,i)=>`<div class="srcrow"><b>${esc(s)}</b><span>${esc(x.refs[i]||x.refs[0]||'')}</span></div>`).join('')}</div>${x.sourceVariants.length>1?`<div style="margin-top:10px"><div class="ft">Source wording retained</div>${x.sourceVariants.map(v=>`<div class="variantline">${esc(v)}</div>`).join('')}</div>`:''}</div></details></section>
+ <section class="sec"><div class="sectitle"><h2>Related terms</h2></div><div class="related">${x.related.length?x.related.map(t=>`<button data-rel="${encodeURIComponent(t)}">${esc(t)}</button>`).join(''):'<span class="body">No related terms added.</span>'}</div></section>`;
+ bindActions(x);$('detail').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>selectRecord(DATA.find(z=>z.id===b.dataset.v)));$('detail').querySelectorAll('[data-rel]').forEach(b=>b.onclick=()=>{state.q=decodeURIComponent(b.dataset.rel);$('q').value=state.q;selected=0;render()});updateUrl(x)
+}
+function bindActions(x){$('save').onclick=()=>toggleSave(x.id);$('copy').onclick=()=>copyRecord(x);$('share').onclick=()=>shareRecord(x)}
+function renderDetail(){if(!FILTERED.length)return;const x=FILTERED[selected];x.type==='Supplier'?renderSupplier(x):x.type==='Process'?renderProcess(x):renderGlossary(x)}
+function activeItems(){
+ const a=[];if(state.q)a.push(['q',`Search: ${state.q}`]);
+ if(state.scope==='Supplier'){
+  if(state.commodity!=='All')a.push(['commodity',state.commodity]);
+  if(state.buyer!=='All')a.push(['buyer',state.buyer]);
+  if(state.route!=='All')a.push(['route',state.route]);
+  if(state.research!=='All')a.push(['research',state.research]);
+  if(state.needsCheck)a.push(['needsCheck','Needs verification']);
+ }else if(state.scope==='Process'){
+  if(state.category!=='All')a.push(['category',state.category]);
+  if(state.openOnly)a.push(['openOnly','Open checks only']);
+ }else if(state.scope==='Glossary'){
+  if(state.category!=='All')a.push(['category',state.category]);
+  state.levels.forEach(v=>a.push(['level',v]));
+  if(state.ambiguous)a.push(['ambiguous','Ambiguous only']);
+ }
+ if(state.savedOnly)a.push(['savedOnly','Saved only']);return a
+}
+function renderActive(){const a=activeItems(),b=$('active');b.classList.toggle('show',a.length>0);b.innerHTML=a.map((x,i)=>`<button class="achip" data-a="${i}">${esc(x[1])} ×</button>`).join('');b.querySelectorAll('[data-a]').forEach(z=>z.onclick=()=>{const[k,v]=a[Number(z.dataset.a)];if(k==='q'){state.q='';$('q').value=''}else if(k==='level')state.levels.delete(v);else if(['needsCheck','openOnly','ambiguous','savedOnly'].includes(k))state[k]=false;else state[k]='All';selected=0;render()})}
+function renderOnly(){renderResults();renderActive();renderDetail()}
+function render(){document.querySelectorAll('[data-scope]').forEach(b=>b.classList.toggle('active',b.dataset.scope===state.scope));$('q').placeholder=state.scope==='Supplier'?'Search commodity…':'Search term, process, role/PIC, supplier…';$('topnote').textContent=state.scope==='Supplier'?'Search and filter by commodity.':state.scope==='Process'?'Search working flows, rules, examples and open checkpoints.':state.scope==='Glossary'?'Every term has Vietnamese definition + practical OPM explanation.':'Search first; use tabs only when you want to narrow the result type.';renderFilters();renderResults();renderActive();if(FILTERED.length)renderDetail();updateSaved()}
+function resetFilters(){state.category='All';state.levels.clear();state.commodity='All';state.buyer='All';state.route='All';state.research='All';state.needsCheck=false;state.openOnly=false;state.ambiguous=false}
+function updateSaved(){$('savedBtn').classList.toggle('active',state.savedOnly);$('savedBtn').innerHTML=`${state.savedOnly?'★':'☆'} <span class="savedlabel">Saved${state.saved.size?' ('+state.saved.size+')':''}</span>`}
+function toggleSave(id){state.saved.has(id)?state.saved.delete(id):state.saved.add(id);localStorage.setItem('milV14Saved',JSON.stringify([...state.saved]));render();toast(state.saved.has(id)?'Saved':'Removed')}
+function recordUrl(x){const u=new URL(location.href);u.search='';u.hash='';u.searchParams.set(x.type==='Supplier'?'supplier':x.type==='Process'?'process':'term',x.term);u.searchParams.set('record',x.id);return u.toString()}
+function updateUrl(x){history.replaceState(null,'',recordUrl(x))}
+function shareRecord(x){const u=recordUrl(x);if(navigator.share)navigator.share({title:x.term,url:u}).catch(()=>{});else navigator.clipboard.writeText(u).then(()=>toast('Link copied'))}
+function copyRecord(x){
+ let t;
+ if(x.type==='Supplier')t=`${x.term}
+Vendor code(s): ${x.vendorCodes.join(' | ')||'—'}
+Commodity: ${x.commodity||'—'}
+Possible parts / public capabilities: ${x.verifiedProducts||'—'}
+Address: ${x.regAddresses||'—'}
+Supplier contacts: ${x.contactVendorRecords||x.emails||'—'}
+Internal TTI relation: ${x.mainContacts||x.internal||'—'}
+Notes / watch-outs: ${x.remarks||x.dq||'—'}`;
+ else if(x.type==='Process')t=`${x.term} — ${x.full}
+Purpose: ${x.purpose}
+OPM focus: ${x.opm}
+Flow:
+- ${x.processSteps.join('\n- ')}
+Working rules:
+- ${x.workingRules.join('\n- ')}
+Examples:
+- ${x.processExample.join('\n- ')}
+Open checks:
+- ${x.openChecks.join('\n- ')}
+Roles/current PICs:
+- ${Object.entries(x.rolePics||{}).map(([r,p])=>`${r}: ${p}`).join('\n- ')}
+Applicability: ${x.applicability}
+Source: ${x.sources.join(' | ')}`;
+ else t=`${x.term} — ${x.full}
+Vietnamese: ${x.vi}
+Định nghĩa: ${x.viDef}
+Diễn giải: ${x.plainVi}
+OPM focus: ${x.opm}
+Ví dụ OPM: ${x.opmExample}
+Provenance: ${x.provenance}`;
+ navigator.clipboard.writeText(t).then(()=>toast('Copied'))
+}
+function selectRecord(x){state.scope=x.type;resetFilters();state.q=x.term;$('q').value=x.term;FILTERED=results();selected=Math.max(0,FILTERED.findIndex(y=>y.id===x.id));render()}
+function clearAll(){state.q='';$('q').value='';state.savedOnly=false;resetFilters();selected=0;const u=new URL(location.href);u.search='';history.replaceState(null,'',u);render();$('q').focus()}
+function exportFiltered(){if(!FILTERED.length)return;const c=['Term','Type','Meaning/Commodity','Vietnamese/Buyer','Vendor Codes','Tax/Registration IDs','Registered Addresses','Products/Capabilities','Research Status'];const lines=[c,...FILTERED.map(x=>[x.term,x.type,x.type==='Supplier'?x.commodity:x.full,x.type==='Supplier'?x.buyer:x.vi,x.vendorCodes.join(' | '),x.taxIds,x.regAddresses,x.verifiedProducts,x.researchStatus])].map(r=>r.map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob(['\uFEFF'+lines],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Milwaukee_Dictionary_v14_Filtered.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').classList.remove('show'),1300)}
+function openDrawer(){$('drawer').classList.add('show');$('backdrop').classList.add('show')}function closeDrawer(){$('drawer').classList.remove('show');$('backdrop').classList.remove('show')}
+function deep(){
+ const u=new URL(location.href),s=u.searchParams.get('supplier'),p=u.searchParams.get('process'),term=u.searchParams.get('term'),r=u.searchParams.get('record');
+ if(s){state.scope='Supplier';state.q='';$('q').value='';FILTERED=results();const i=FILTERED.findIndex(x=>(r&&x.id===r)||norm(x.term)===norm(s));selected=i>=0?i:0;return}
+ if(p){state.scope='Process';state.q=p;$('q').value=p}else if(term){state.scope='Glossary';state.q=term;$('q').value=term}else return;
+ FILTERED=results();if(r){const i=FILTERED.findIndex(x=>x.id===r);selected=i>=0?i:0}
+}
+async function load(){try{const r=await fetch(`glossary_data.csv?v=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw Error(`HTTP ${r.status}`);lastModified=r.headers.get('last-modified')||'';DATA=records(await r.text());deep();render();const suppliers=DATA.filter(x=>x.type==='Supplier'),processes=DATA.filter(x=>x.type==='Process'),web=suppliers.filter(x=>webCount(x)>0).length,mod=lastModified?new Date(lastModified):null;$('foot').textContent=`${DATA.length.toLocaleString()} records • ${processes.length} process playbooks • ${suppliers.length} supplier profiles • ${web} supplier profiles with external research${mod&&!isNaN(mod)?' • Data '+mod.toLocaleDateString():''}`}catch(e){$('count').textContent='Data unavailable';$('results').innerHTML='<div class="empty"><strong>Could not load glossary_data.csv</strong>Confirm CSV is deployed beside index.html.</div>';$('detail').innerHTML=`<div class="empty">${esc(e.message)}</div>`}}
+let timer;$('q').addEventListener('input',e=>{clearTimeout(timer);timer=setTimeout(()=>{state.q=e.target.value;selected=0;render()},45)});$('q').addEventListener('keydown',e=>{if(e.key==='ArrowDown'&&FILTERED.length){e.preventDefault();selected=Math.min(selected+1,FILTERED.length-1);renderOnly();document.querySelector(`[data-i="${selected}"]`)?.scrollIntoView({block:'nearest'})}if(e.key==='ArrowUp'&&FILTERED.length){e.preventDefault();selected=Math.max(selected-1,0);renderOnly();document.querySelector(`[data-i="${selected}"]`)?.scrollIntoView({block:'nearest'})}});
+document.querySelectorAll('[data-scope]').forEach(b=>b.onclick=()=>{state.scope=b.dataset.scope;resetFilters();selected=0;render()});$('savedBtn').onclick=()=>{state.savedOnly=!state.savedOnly;selected=0;render()};$('clearBtn').onclick=clearAll;$('exportBtn').onclick=exportFiltered;$('filterBtn').onclick=openDrawer;$('closeDrawer').onclick=closeDrawer;$('backdrop').onclick=closeDrawer;document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==$('q')){e.preventDefault();$('q').focus()}if(e.key==='Escape'){if($('drawer').classList.contains('show'))closeDrawer();else if(state.q){state.q='';$('q').value='';selected=0;render()}}});load();
+</script></body></html>
